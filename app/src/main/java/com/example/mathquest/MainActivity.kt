@@ -123,6 +123,19 @@ fun MathQuestNavigation() {
                 )
 
                 NavigationBarItem(
+                    selected = currentRoute == "statistics",
+                    onClick = {
+                        navController.navigate("statistics") {
+                            launchSingleTop = true
+                        }
+                    },
+                    icon = {},
+                    label = {
+                        Text("Statistics")
+                    }
+                )
+
+                NavigationBarItem(
                     selected = currentRoute == "settings",
                     onClick = {
                         navController.navigate("settings") {
@@ -159,6 +172,11 @@ fun MathQuestNavigation() {
                 GameScreen(
                     viewModel = questionViewModel
                 )
+            }
+
+            composable("statistics") {
+
+                StatisticsScreen()
             }
 
             composable("settings") {
